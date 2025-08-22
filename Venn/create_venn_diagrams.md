@@ -1,4 +1,4 @@
-##Creating shared variant counts file
+## Creating shared variant counts file
 The code for the following chunk was taken from https://aabiddanda.github.io/geovar/notebooks/getting-started.html and edited to match the files used for analysis
 ```{python}
 import numpy as np
@@ -34,7 +34,7 @@ counts_output = geovar.count_geovar_codes()
 geovar_code_counts = pd.DataFrame({"codes":counts_output[0],"counts":counts_output[1]})
 geovar_code_counts.to_csv("/group/jrigrp11/mchun/SeeDs/MAF_0.10/maf_0.10_geovar_code_counts.txt", sep=' ', header=False, index=False)
 ```
-##Creating diagrams with the shared variant counts
+## Creating diagrams with the shared variant counts
 Functions used to create the diagrams are a subset from James Kitchens' https://github.com/kitchensjn/visualizing-human-genetic-diversity/blob/main/create_euler_diagrams.R
 ```{r}
 library(eulerr)
