@@ -1,5 +1,5 @@
+The code for the following chunk was taken from https://aabiddanda.github.io/geovar/notebooks/getting-started.html and edited to match the files used for analysis
 ```{python}
-## This code has been pulled from https://aabiddanda.github.io/geovar/notebooks/getting-started.html
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -34,12 +34,11 @@ geovar_code_counts = pd.DataFrame({"codes":counts_output[0],"counts":counts_outp
 geovar_code_counts.to_csv("/group/jrigrp11/mchun/SeeDs/MAF_0.10/maf_0.10_geovar_code_counts.txt", sep=' ', header=False, index=False)
 ```
 
-
+Functions used to create the diagrams are a subset from James Kitchens' https://github.com/kitchensjn/visualizing-human-genetic-diversity/blob/main/create_euler_diagrams.R
 ```{r}
 library(eulerr)
 library(jsonlite)
 
-# The following functions are subsetted from James Kitchens' https://github.com/kitchensjn/visualizing-human-genetic-diversity/blob/main/create_euler_diagrams.R
 sum_snps <- function(pop_combo, pops, counts, cutoff) {
   pop_tf <- rep(FALSE, length(pops))
   pop_tf[pop_combo] <- TRUE
@@ -109,7 +108,7 @@ pop_file = read_file("/Users/xian/JRILab/fifteen_plus_pop_panel.txt")
 
 pops = c("TUXPEN", "OLOTIL", "TEPECI") #chosen because Jeff believes that tuxpeno should have lots of variation because it's so widespread and Olotillo and tepecintle is hypothesized to be the parents of the hybrid tuxpeno
 
-your_plot <- generate_euler_plot("/Users/xian/JRILab/fifteen_geovar_code_counts.txt", "/Users/xian/JRILab/fifteen_plus_pop_panel.txt", selected_pops=pops, cutoff=1)
+the_plot <- generate_euler_plot("/Users/xian/JRILab/fifteen_geovar_code_counts.txt", "/Users/xian/JRILab/fifteen_plus_pop_panel.txt", selected_pops=pops, cutoff=1)
 plot(your_plot$euler, quantities = TRUE, fills = c("#F0E442", "#0072B2", "#CC79A7"), edges = list(
   col = c("black", "black", "black"),        # consistent for clarity
   lwd = 5,
@@ -120,7 +119,7 @@ plot(your_plot$euler, quantities = TRUE, fills = c("#F0E442", "#0072B2", "#CC79A
 
 v2.pops = c("TUXPEN", "COMITE", "REVENT") # chosen as a comparison to pops, pops should be unrelated if graphs looks the same it provides evidence to disprove the hybrid/parent theory
 
-your_plot <- generate_euler_plot("/Users/xian/JRILab/fifteen_geovar_code_counts.txt", "/Users/xian/JRILab/fifteen_plus_pop_panel.txt", selected_pops=v2.pops, cutoff=1)
+v2_the_plot <- generate_euler_plot("/Users/xian/JRILab/fifteen_geovar_code_counts.txt", "/Users/xian/JRILab/fifteen_plus_pop_panel.txt", selected_pops=v2.pops, cutoff=1)
 plot(your_plot$euler, quantities = TRUE, fills = c("#E69F00", "#56B4E9", "#1EB489"), edges = list(
   col = c("black", "black", "black"),        # consistent for clarity
   lwd = 5,
