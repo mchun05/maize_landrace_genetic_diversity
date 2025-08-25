@@ -1,4 +1,4 @@
-# Formatting the data before inputting to R
+## Formatting the data before inputting to R
 ```{bash}
 grep -v "^#" sorted.zea.maf_0.05_LD_pruned_in.vcf | wc -l #67767 variants before processing, 3248-9=3239 samples
 bcftools query -l sorted.zea.maf_0.05_LD_pruned_in.vcf > zea.sample.ids.txt #pulls sampleIDs in a subset file
@@ -13,7 +13,7 @@ sed -i 's/1|1/2/g' snps.for.pca.input.tsv
 sed -i 's/\.|\./NA/g' snps.for.pca.input.tsv
 ```
 
-# Running principle components analysis
+## Running principle components analysis
 ```{r}
 library(tidyverse)
 library(vroom)
